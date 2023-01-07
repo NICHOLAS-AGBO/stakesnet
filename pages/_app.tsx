@@ -15,13 +15,7 @@ const LightTheme:ThemeOptions = {
     secondary: {
       main: '#fff',
     },
-  },
-  typography:{
-    caption:{
-      fontSize: "8pt",
-    }
   }
-
 };
 
 const DarkTheme:ThemeOptions = {
@@ -36,13 +30,7 @@ const DarkTheme:ThemeOptions = {
     background:{
       paper: "rgba(81,81,81,0.55)"
     }
-  },
-  typography:{
-    caption:{
-      fontSize: "8pt",
-    }
   }
-
 };
 
 export default function App({ Component, pageProps }: AppProps) {

@@ -7,7 +7,7 @@ const Footer:FC = () => {
       <AppBar variant={"outlined"} position={"static"} component={"footer"}
               sx={{backgroundColor: "transparent"}}>
           <Toolbar sx={{justifyContent: "center", color: "primary.main"}}>
-              <Typography color={"GrayText"}>
+              <Typography variant={"caption"} color={"GrayText"}>
                   STAKERSNET.COM &copy; {(new Date()).getFullYear()}. All rights reserved.
               </Typography>
           </Toolbar>
