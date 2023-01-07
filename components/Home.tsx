@@ -30,15 +30,17 @@ const Home:React.FC = () => {
       <>
 <Container maxWidth={"md"}>
 
-    <Stack rowGap={20} pb={10} pt={{xs: 5, sm: 2}}>
+    <Stack rowGap={20} justifyContent={"center"} pb={10} pt={{xs: 5, sm: 2}}>
 
         {/*    Section Main*/}
-        <Stack component={"main"} justifyContent={"center"} alignItems={"center"}
-               sx={{minHeight: "90vh", width: "100%"}}>
+        <Stack component={"main"}
+               justifyContent={"center"}
+               alignItems={"center"}
+               sx={{minHeight: "90vh"}}>
 
-            <Grid container rowGap={5} justifyContent={"space-between"}>
+            <Grid container rowGap={5} justifyContent={"space-between"} width={"100%"}>
                 <Grid xs={12} md={6.5}>
-                    <Stack rowGap={5}>
+                    <Stack rowGap={5} justifyContent={{xs: "center", md: "flex-start"}}>
                         <Typography variant={"h1"} fontSize={{xs: "3.5rem", md: "h3.fontSize"}} fontWeight={900} color={"primary"}>
                             Stake with a low amount and
                             earn as much as you can.
@@ -75,8 +77,8 @@ const Home:React.FC = () => {
                     ,
                     backgroundPosition: "center",
                 }}>
-                    <animated.div style={{backdropFilter: "blur(8px)",...props}}>
-                    <Image style={{margin: "0 auto", display: "block"}} src={NFT_1} alt={"image from freepik.com"} placeholder={"blur"} priority/>
+                    <animated.div style={props}>
+                    <Image src={NFT_1} alt={"image from freepik.com"} placeholder={"blur"} priority />
                     </animated.div>
                 </Grid>
             </Grid>
