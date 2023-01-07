@@ -41,9 +41,9 @@ const Home:React.FC = () => {
             <Grid container rowGap={5} justifyContent={"space-between"} width={"100%"}>
                 <Grid xs={12} md={6.5}>
                     <Stack rowGap={5} justifyContent={{xs: "center", md: "flex-start"}}>
-                        <Typography variant={"h1"} fontSize={{xs: "3.5rem", md: "h3.fontSize"}} fontWeight={900} color={"primary"}>
+                        <Typography variant={"h1"} fontSize={{xs: "3rem", md: "h3.fontSize"}} fontWeight={900} color={"primary"}>
                             Stake with a low amount and
-                            earn as much as you can.
+                            earn more.
                         </Typography>
                         <Fade left>
                             <Typography color={"GrayText"}>
@@ -71,14 +71,20 @@ const Home:React.FC = () => {
 
                 </Grid>
                 <Grid xs={12} md={5.5} sx={{
-                    background: ({palette})=>palette.mode==="dark"?
-                        `radial-gradient(circle closest-corner at 60% 30%, transparent, transparent, ${red[800]} 35%, transparent, transparent),
-                    radial-gradient(circle closest-corner at 48% 60%,transparent, transparent, ${blue[800]} 15%,transparent, transparent)`:"transparent"
-                    ,
+                    background: ({palette})=>palette.mode==="dark"?{
+                        xs:`radial-gradient(circle closest-corner at 65% 40%, transparent, transparent, ${red[800]} 35%, transparent, transparent),
+                    radial-gradient(circle closest-corner at 48% 60%,transparent, transparent, ${blue[800]} 35%,transparent, transparent)`,
+                        sm: `radial-gradient(circle closest-corner at 55% 45%, transparent, transparent, ${red[800]} 20%, transparent, transparent),
+                    radial-gradient(circle closest-corner at 48% 50%,transparent, transparent, ${blue[800]} 10%,transparent, transparent)`,
+                        md: `radial-gradient(circle closest-corner at 60% 30%, transparent, transparent, ${red[800]} 35%, transparent, transparent),
+                    radial-gradient(circle closest-corner at 48% 60%,transparent, transparent, ${blue[800]} 15%,transparent, transparent)`
+                        }
+                        :
+                        "transparent",
                     backgroundPosition: "center",
                 }}>
                     <animated.div style={props}>
-                    <Image src={NFT_1} alt={"image from freepik.com"} placeholder={"blur"} priority />
+                    <Image style={{margin: "0 auto", display: "block"}} src={NFT_1} alt={"image from freepik.com"} placeholder={"blur"} priority />
                     </animated.div>
                 </Grid>
             </Grid>
