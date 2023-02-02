@@ -26,6 +26,7 @@ const Audit:FC = () => (
         </Grid>
         <Grid xs={12} md={6} flexGrow={1}>
 <FormControl fullWidth variant={"filled"} sx={{rowGap: 2}}>
+    <Typography color={"primary"}>Email us for your audit</Typography>
     <TextField id={"name"} type={"text"} label={'Full name'}/>
     <TextField id={"email"} type={"email"} label={"Email address"}/>
     <Button variant={"outlined"} htmlFor={"file"} component={"label"} color={"error"} startIcon={<UploadFile/>}>
