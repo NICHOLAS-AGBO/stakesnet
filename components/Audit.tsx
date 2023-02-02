@@ -19,7 +19,7 @@ const Audit:FC = () => (
                 Our team of experienced solidity smart contract auditors performs audits for tokens, NFTs,
                 crowdsales, marketplaces, gambling games, financial protocols, and more! We leverage a combination of static analysis, automated tools,
                 and a robust manual review process to provide industry-leading security recommendations to project teams.
-                &nbsp; <Link href={"#"} style={{color: "blue", textDecoration: "underline"}}>
+                <br/><Link href={"#"} style={{color: "blue", textDecoration: "underline"}}>
                     View audits
                 </Link>
             </Typography>

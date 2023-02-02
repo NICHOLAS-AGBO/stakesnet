@@ -21,7 +21,7 @@ const wagmiClient = createClient({
     connectors: modalConnectors({
         projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
         version: "1" || "2",
-        appName: "web3Modal",
+        appName: "Stakersnet",
         chains,
     }),
     provider,

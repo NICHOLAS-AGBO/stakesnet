@@ -14,7 +14,7 @@ const Footer:FC = () => {
     }
     useEffect(() => {
         const moveUp = ()=>{
-            if (window.scrollY>1200){
+            if (window.scrollY>1500){
                 setAppear(true)
             }else {
                 setAppear(false);
