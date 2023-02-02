@@ -20,6 +20,7 @@ import {useSpring, animated, easings} from "@react-spring/web";
 import Fade from "react-reveal/Fade";
 // @ts-ignore
 import Flip from "react-reveal/Flip";
+import Audit from "@components/Audit";
 
 const Rb = Roboto({weight: "300", subsets: ["latin"], preload: true, fallback: ["Helvetica","Arial",'sans-serif']});
 
@@ -30,7 +31,7 @@ const Home:React.FC = () => {
       <>
 <Container maxWidth={"md"}>
 
-    <Stack rowGap={20} justifyContent={"center"} pb={10} pt={{xs: 5, sm: 2}}>
+    <Stack rowGap={20} justifyContent={"center"} pb={10} pt={{xs: 5, lg: 2}}>
 
         {/*    Section Main*/}
         <Stack component={"main"}
@@ -105,7 +106,7 @@ const Home:React.FC = () => {
                             Annual Percentage Yield (APY) is a normalized representation of an interest rate, based on a compounding period of one year. Maximum Annual Percentage Yield of all staking is a nominal percentage of 0.05 unit per three (3) days earning with monthly percentage yield of 0.5 unit of the number of tokens staked.
                         </Typography>
                     </Grid>
-                    <Grid xs={12} sm={4} sx={{overflow: "hidden"}} height={{xs: 400, sm: "auto", position: "relative"}}>
+                    <Grid xs={12} sm={4} sx={{overflow: "hidden"}} height={{xs: 200, sm: "auto", position: "relative"}}>
                         <Typography fontWeight={900}
                                     aria-disabled={true}
                                     sx={{
@@ -123,6 +124,9 @@ const Home:React.FC = () => {
                 </Grid>
 
         </Stack>
+
+        {/*Section for Audit*/}
+        <Audit/>
 
         {/*Section FAQs*/}
         <Stack component={"section"} rowGap={5} alignItems={"center"}>
@@ -274,6 +278,7 @@ const Home:React.FC = () => {
                 </Grid>
 
         </Stack>
+
 
     </Stack>
 

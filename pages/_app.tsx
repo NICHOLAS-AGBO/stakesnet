@@ -4,6 +4,9 @@ import Header from "@components/Header";
 import {Box, createTheme, ThemeOptions, ThemeProvider, useMediaQuery} from "@mui/material";
 import {useCallback, useEffect, useMemo, useState} from "react";
 import BG1 from "@static/img/13182208_5166950.jpg";
+import {WagmiConfig} from "wagmi";
+import {ethereumClient, wagmiClient} from "@components/Wallets";
+import {Web3Modal} from "@web3modal/react";
 
 
 const LightTheme:ThemeOptions = {
@@ -80,8 +83,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   return <>
+    <WagmiConfig client={wagmiClient}>
     <ThemeProvider theme={Theme}>
-      <Box   sx={{
+      <Box  sx={{
         background: ({palette})=>palette.mode==="dark"?`linear-gradient(180deg, #000 15%, rgba(0,0,0,.45)) no-repeat bottom, url(${BG1.src}) #000 no-repeat bottom`:"#fff",
         backgroundClip: "padding-box",
         backgroundSize: "100% 30%",
@@ -90,5 +94,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       </Box>
     </ThemeProvider>
+    </WagmiConfig>
+    <Web3Modal
+        projectId={`${process.env.NEXT_PUBLIC_PROJECT_ID}`}
+        ethereumClient={ethereumClient}
+    />
   </>
 }
