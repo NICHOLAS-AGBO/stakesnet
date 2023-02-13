@@ -7,6 +7,7 @@ import BG1 from "@static/img/13182208_5166950.jpg";
 import {WagmiConfig} from "wagmi";
 import {ethereumClient, wagmiClient} from "@components/Wallets";
 import {Web3Modal} from "@web3modal/react";
+import Footer from "@components/Footer";
 
 
 const LightTheme:ThemeOptions = {
@@ -92,6 +93,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }}>
     <Header action={{changeTheme: changeTheme, mode: Theme.palette.mode}}/>
       <Component {...pageProps} />
+        <Footer/>
       </Box>
     </ThemeProvider>
     </WagmiConfig>
