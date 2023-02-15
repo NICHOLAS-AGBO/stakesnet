@@ -21,13 +21,12 @@ import Fade from "react-reveal/Fade";
 // @ts-ignore
 import Flip from "react-reveal/Flip";
 import Audit from "@components/Audit";
-import {useRouter} from "next/router";
+import Link from "next/link";
 
 const Rb = Roboto({weight: "300", subsets: ["latin"], preload: true, fallback: ["Helvetica","Arial",'sans-serif']});
 
 const Home:React.FC = () => {
     const [state, setState] = useState<string|null>(null);
-    const {push} = useRouter();
     const props = useSpring({from:{x: 10, y: -10, z: -10}, to:{x: 10, y: 10, z: 10}, loop: true, config:{easing: easings.easeInBounce, duration: 5000}});
     return(
       <>
@@ -56,7 +55,7 @@ const Home:React.FC = () => {
                             </Typography>
                         </Fade>
                         <Flip bottom>
-                            <Button onClick={()=>push("/staking")} variant={"contained"} fullWidth
+                            <Button href={"/staking"} variant={"contained"} fullWidth
                                     disableElevation sx={{
                                 outlineColor: blue[500],
                                 outlineStyle: "solid",
