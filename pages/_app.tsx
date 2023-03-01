@@ -8,6 +8,7 @@ import {WagmiConfig} from "wagmi";
 import {ethereumClient, wagmiClient} from "@components/Wallets";
 import {Web3Modal} from "@web3modal/react";
 import Footer from "@components/Footer";
+import CoinList from "@components/CoinContext";
 
 
 const LightTheme:ThemeOptions = {
@@ -83,7 +84,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [muiMedia]);
 
 
-  return <>
+  return <CoinList>
     <WagmiConfig client={wagmiClient}>
     <ThemeProvider theme={Theme}>
       <Box  sx={{
@@ -101,5 +102,5 @@ export default function App({ Component, pageProps }: AppProps) {
         projectId={`${process.env.NEXT_PUBLIC_PROJECT_ID}`}
         ethereumClient={ethereumClient}
     />
-  </>
+  </CoinList>
 }

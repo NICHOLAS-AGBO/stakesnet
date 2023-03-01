@@ -14,6 +14,7 @@ import {Menu} from "@mui/icons-material";
 import Sidebar, {FixedSidebar} from "@components/Sidebar";
 import {Web3NetworkSwitch} from "@web3modal/react";
 
+
 const Web3Network = styled(Web3NetworkSwitch)(({theme})=>({
     "&>w3m-button-big::part(button)":{
         backgroundColor: theme.palette.background.paper,
