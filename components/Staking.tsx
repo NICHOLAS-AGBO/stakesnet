@@ -1,6 +1,6 @@
 import React, {FC, useState} from "react";
 import {
-    Box,
+    Box, Button,
     Container,
     IconButton, Paper,
     Stack, styled,
@@ -13,17 +13,13 @@ import logo from "@static/img/logo.png";
 import {Menu} from "@mui/icons-material";
 import Sidebar, {FixedSidebar} from "@components/Sidebar";
 import {Web3NetworkSwitch} from "@web3modal/react";
+import {useRouter} from "next/router";
 
 
-const Web3Network = styled(Web3NetworkSwitch)(({theme})=>({
-    "&>w3m-button-big::part(button)":{
-        backgroundColor: theme.palette.background.paper,
-        border: "1px solid gray"
-    }
-}));
 
 const Staking:FC = () => {
     const [state, setState] = useState(false);
+    const {push} = useRouter();
 
     return(
       <>
@@ -41,24 +37,38 @@ const Staking:FC = () => {
                       </Link>
                   </Typography>
               </Stack>
-
               <FixedSidebar/>
-
           </Grid>
 
-          <Grid flexGrow={1} sx={{mt: {xs: 0, md: 3}}}>
-            <Grid container gap={3} rowGap={5}>
+          <Grid xs={12} md={8} lg={9} flexGrow={1}>
+            <Grid container gap={3} rowGap={5} justifyContent={"space-between"}>
               {/*  Section Wallet   */}
               <Grid xs={12}>
                   <Stack flexDirection={"row"} alignItems={"baseline"} justifyContent={"space-between"} py={2}>
                       <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>Wallet</Typography>
-                      <Web3Network/>
+                      <Web3NetworkSwitch/>
                   </Stack>
                  <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid",}}>
                      <Grid container justifyContent={"space-between"} alignItems={"center"} wrap={"wrap"}>
                          <Grid>
-                             <Typography variant={"h6"} fontWeight={700}>Total</Typography>
-                             <Typography>$0</Typography>
+                             <Typography variant={"subtitle2"} fontWeight={300}>Total assets</Typography>
+                             <Typography variant={"h6"} fontWeight={700}>$0</Typography>
+                         </Grid>
+                         <Grid>
+                             <Typography variant={"subtitle2"} fontWeight={300}>Total BNB</Typography>
+                             <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
+                         </Grid>
+                         <Grid>
+                             <Typography variant={"subtitle2"} fontWeight={300}>Total staked</Typography>
+                             <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
+                         </Grid>
+                         <Grid sx={{display: {xs: "none", md: "block"}}}>
+                             <Typography variant={"subtitle2"} fontWeight={300}>Total rewards received</Typography>
+                             <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
+                         </Grid>
+                         <Grid sx={{display: {xs: "none", md: "block"}}}>
+                             <Typography variant={"subtitle2"} fontWeight={300}>BNB price</Typography>
+                             <Typography variant={"h6"} fontWeight={700}>$0</Typography>
                          </Grid>
                      </Grid>
 
@@ -68,22 +78,36 @@ const Staking:FC = () => {
               <Grid xs={12} lg={7.5} flexGrow={1}>
                   <Grid container direction={"column"} rowGap={5}>
                       <Grid>
-                          <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>Assets</Typography>
-                          <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid", height: 100}}>
+                          <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid"}}>
+                              <Stack flexDirection={"row"} justifyContent={"space-between"} flexWrap={"wrap"} rowGap={3}>
+                                  <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2} width={{sm: "60%"}}>Assets</Typography>
+                                  <Button onClick={()=>push("/assets")} variant={"outlined"} size={"small"}>View all assets</Button>
+                              <Typography maxWidth={{xs: "90%", sm: "70%", md: "55%"}} align={"center"} variant={"caption"} mx={"auto"} px={{sm: 5}}>
+                                  We did not detect any existing assets.
+                                  Additional information will display once wallet has funds.
+                              </Typography>
+                              </Stack>
 
                           </Paper>
                       </Grid>
 
                       <Grid>
-                          <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>Governance</Typography>
-                          <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid", height: 100}}>
-
+                          <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid", cursor: "default"}}>
+                              <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>Governance</Typography>
+                              <Typography variant={"h4"} fontWeight={300} align={"center"} py={2}>Coming soon !!!</Typography>
                           </Paper>
                       </Grid>
 
                       <Grid>
-                          <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>Staking</Typography>
-                          <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid", height: 100}}>
+                          <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid"}}>
+                              <Stack flexDirection={"row"} justifyContent={"space-between"} flexWrap={"wrap"} rowGap={3}>
+                              <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2} width={{sm: "60%"}}>Staking</Typography>
+                              <Button onClick={()=>push("/stakes")} variant={"outlined"} size={"small"}>View staking</Button>
+                              <Typography maxWidth={{xs: "90%", sm: "70%", md: "55%"}} align={"center"} variant={"caption"} mx={"auto"} px={{sm: 5}}>
+                                  You currently do not have any staked BNB.<br/>
+                                  You may view validators or see the staking guide.
+                              </Typography>
+                          </Stack>
 
                           </Paper>
                       </Grid>
@@ -93,17 +117,14 @@ const Staking:FC = () => {
 
               {/*  ADVERTS  */}
               <Grid xs={12} lg={4}>
-                  <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>News and Feeds</Typography>
                   <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid", height: 100}}>
+                      <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>News and Feeds</Typography>
 
                       </Paper>
               </Grid>
 
 
             </Grid>
-
-
-
           </Grid>
 
         </Grid>
