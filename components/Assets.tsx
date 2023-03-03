@@ -1,15 +1,25 @@
-import React, {FC} from "react";
-import {Button, Container, Paper, Stack, Typography, Unstable_Grid2 as Grid} from "@mui/material";
+import React, {FC, Fragment} from "react";
+import {
+    Avatar,
+    Button,
+    Container,
+    Divider,
+    Paper,
+    Skeleton,
+    Stack,
+    Typography,
+    Unstable_Grid2 as Grid
+} from "@mui/material";
 import {Web3NetworkSwitch} from "@web3modal/react";
 import {useRouter} from "next/router";
 import {ArrowBack} from "@mui/icons-material";
-import {useToken} from "wagmi";
+import {useAssets} from "@hooks/useAssets";
 
 
 const Assets:FC = () => {
     const {push} = useRouter();
-    // const {data} = useToken();
-
+    const {data, loading, error} = useAssets();
+    console.log(data)
     return(<>
         <Container maxWidth={"lg"} sx={{py: 3}}>
             <Button onClick={()=>history.back()} startIcon={<ArrowBack/>} disableRipple sx={{"&:hover":{backgroundColor: "transparent", px: 0}}}>
@@ -58,7 +68,31 @@ const Assets:FC = () => {
                                 <Typography variant={"h6"} color={"primary"} mb={2} width={"50%"}>Balance</Typography>
                             </Stack>
                             <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid"}}>
+                                {
+                                    loading?
+                                        <Stack flexDirection={"row"} justifyContent={"space-between"} alignItems={"center"} gap={2}>
+                                            <Skeleton variant={"circular"} width={"25%"}></Skeleton>
+                                            <Skeleton variant={"rectangular"} width={"70%"}></Skeleton>
+                                        </Stack>:
+                                        error?
+                                            <Typography color={"error"} variant={"h5"} fontWeight={500} align={"center"}>Failed to load assets</Typography>
+                                            :<Stack justifyContent={"space-between"} alignItems={"center"} rowGap={5}>
+                                                {
+                                                    data.map((asset,id)=>(
+                                                        <Fragment key={id}>
+                                                            <Stack flexDirection={"row"} justifyContent={"space-around"} alignItems={"center"} gap={2} width={"100%"}>
+                                                                <Avatar src={asset.image} alt={asset.name+" logo"} sx={{width: 48, height: 48}}/>
+                                                                <Typography variant={"subtitle1"}>{asset.name+` (${asset.symbol})`}</Typography>
+                                                                <Typography variant={"h6"}>{"$"+asset.current_price}</Typography>
+                                                            </Stack>
+                                                            <Divider sx={{width: "100%"}}/>
+                                                        </Fragment>
 
+                                                    ))
+                                                }
+                                            </Stack>
+
+                                }
 
                             </Paper>
                         </Grid>
