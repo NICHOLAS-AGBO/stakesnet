@@ -88,7 +88,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <WagmiConfig client={wagmiClient}>
     <ThemeProvider theme={Theme}>
       <Box  sx={{
-        background: ({palette})=>palette.mode==="dark"?`linear-gradient(180deg, #000 15%, rgba(0,0,0,.45)) no-repeat bottom, url(${BG1.src}) #000 no-repeat bottom`:"#fff",
+        background: ({palette})=>palette.mode==="dark"?
+            `linear-gradient(180deg, #000 15%, rgba(0,0,0,.45)) no-repeat bottom, 
+            url(${BG1.src}) #000 no-repeat bottom`:"#fff",
         backgroundClip: "padding-box",
         backgroundSize: "100% 30%",
       }}>

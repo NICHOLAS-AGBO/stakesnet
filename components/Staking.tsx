@@ -51,23 +51,23 @@ const Staking:FC = () => {
                  <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid",}}>
                      <Grid container justifyContent={"space-between"} alignItems={"center"} wrap={"wrap"}>
                          <Grid>
-                             <Typography variant={"subtitle2"} fontWeight={300}>Total assets</Typography>
+                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total assets</Typography>
                              <Typography variant={"h6"} fontWeight={700}>$0</Typography>
                          </Grid>
-                         <Grid>
-                             <Typography variant={"subtitle2"} fontWeight={300}>Total BNB</Typography>
+                         <Grid sx={{display: {xs: "none", sm: "block"}}}>
+                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total BNB</Typography>
                              <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
                          </Grid>
                          <Grid>
-                             <Typography variant={"subtitle2"} fontWeight={300}>Total staked</Typography>
+                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total staked</Typography>
                              <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
                          </Grid>
                          <Grid sx={{display: {xs: "none", md: "block"}}}>
-                             <Typography variant={"subtitle2"} fontWeight={300}>Total rewards received</Typography>
+                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total rewards received</Typography>
                              <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
                          </Grid>
                          <Grid sx={{display: {xs: "none", md: "block"}}}>
-                             <Typography variant={"subtitle2"} fontWeight={300}>BNB price</Typography>
+                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>BNB price</Typography>
                              <Typography variant={"h6"} fontWeight={700}>$0</Typography>
                          </Grid>
                      </Grid>
