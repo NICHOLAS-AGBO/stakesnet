@@ -23,7 +23,7 @@ const UserWallet:FC<{title:string}> = ({title})=>{
                 </Grid>
                 <Grid sx={{display: {xs: "none", sm: "block"}}}>
                     <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total {isConnected?<>{bal.data?.symbol}</>:<>BNB</>}</Typography>
-                    <Typography variant={"h6"} fontWeight={700}>{isConnected?<>{bal.data?.value} {bal.data?.symbol}</>:<>0 BNB</>}</Typography>
+                    <Typography variant={"h6"} fontWeight={700}>{isConnected?<>{bal.data?.value+" "+bal.data?.symbol}</>:<>0 BNB</>}</Typography>
                 </Grid>
                 <Grid>
                     <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total staked</Typography>
