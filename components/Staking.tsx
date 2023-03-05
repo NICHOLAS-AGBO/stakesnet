@@ -63,7 +63,7 @@ const Staking:FC = () => {
                       <Grid>
                           <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid", cursor: "default"}}>
                               <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>Governance</Typography>
-                              <Typography variant={"h4"} fontWeight={300} align={"center"} py={2}>Coming soon !!!</Typography>
+                              <Typography variant={"h4"} fontWeight={300} align={"center"} py={2} color={"error"}>Coming soon !!!</Typography>
                           </Paper>
                       </Grid>
 
