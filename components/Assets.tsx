@@ -58,15 +58,19 @@ const Assets:FC = () => {
 
                                 {
                                     loading?
-                                        <Stack flexDirection={"row"} justifyContent={"space-between"} alignItems={"center"} gap={2} flexWrap={"wrap"}>
+                                        <Stack flexDirection={"column"} justifyContent={"center"} alignItems={"center"} rowGap={4} flexWrap={"wrap"}>
+                                            <Stack flexDirection={"row"} alignItems={"center"} gap={2}>
                                             <Skeleton variant={"circular"} sx={{width: 30, height: 30}}></Skeleton>
                                             <Skeleton variant={"rectangular"} sx={{flexGrow: 1}} width={"25%"}></Skeleton>
                                             <Skeleton variant={"rectangular"} sx={{flexGrow: 1}} width={"25%"}></Skeleton>
                                             <Skeleton variant={"rectangular"} sx={{flexGrow: 1}} width={"25%"}></Skeleton>
+                                            </Stack>
+                                            <Stack flexDirection={"row"} alignItems={"center"} gap={2}>
                                             <Skeleton variant={"circular"} sx={{width: 30, height: 30}}></Skeleton>
                                             <Skeleton variant={"rectangular"} sx={{flexGrow: 1}} width={"25%"}></Skeleton>
                                             <Skeleton variant={"rectangular"} sx={{flexGrow: 1}} width={"25%"}></Skeleton>
                                             <Skeleton variant={"rectangular"} sx={{flexGrow: 1}} width={"25%"}></Skeleton>
+                                            </Stack>
                                         </Stack>:
                                         error?
                                             <Typography color={"error"} variant={"h5"}
