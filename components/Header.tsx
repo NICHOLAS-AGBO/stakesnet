@@ -5,7 +5,7 @@ import React from "react";
 import logo from "@static/img/logo.png";
 import {DarkMode, LightMode} from "@mui/icons-material";
 import {useWeb3Modal, useWeb3ModalTheme, Web3Button} from "@web3modal/react";
-import {mainnet} from "wagmi/chains";
+import {useNetwork} from "wagmi";
 
 type Action={
     action: {changeTheme: ()=>void, mode: PaletteMode}
@@ -15,12 +15,13 @@ type Action={
 const Header:React.FC<Action> = ({action}) => {
     const {setDefaultChain,isOpen} = useWeb3Modal();
     const {setTheme} = useWeb3ModalTheme();
+    const {chain}  = useNetwork();
 
     setTheme({
         themeMode: action.mode==="dark"?"dark":"light",
     });
 
-    setDefaultChain(mainnet);
+    setDefaultChain(chain);
 
   return (<AppBar elevation={0}
                   variant={"outlined"}

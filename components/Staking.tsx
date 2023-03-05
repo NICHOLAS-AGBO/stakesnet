@@ -3,8 +3,7 @@ import {
     Box, Button,
     Container,
     IconButton, Paper,
-    Stack, styled,
-    Typography,
+    Stack, Typography,
     Unstable_Grid2 as Grid,
 } from "@mui/material";
 import Link from "next/link";
@@ -12,8 +11,8 @@ import Image from "next/image";
 import logo from "@static/img/logo.png";
 import {Menu} from "@mui/icons-material";
 import Sidebar, {FixedSidebar} from "@components/Sidebar";
-import {Web3NetworkSwitch} from "@web3modal/react";
 import {useRouter} from "next/router";
+import UserWallet from "@components/UserWallet";
 
 
 
@@ -42,38 +41,8 @@ const Staking:FC = () => {
 
           <Grid xs={12} md={8} lg={9} flexGrow={1}>
             <Grid container gap={3} rowGap={5} justifyContent={"space-between"}>
-              {/*  Section Wallet   */}
-              <Grid xs={12}>
-                  <Stack flexDirection={"row"} alignItems={"baseline"} justifyContent={"space-between"} py={2}>
-                      <Typography fontWeight={700} variant={"h5"} color={"primary"} mb={2}>Wallet</Typography>
-                      <Web3NetworkSwitch/>
-                  </Stack>
-                 <Paper elevation={0} sx={{p: 2, borderColor: "gray", borderWidth: 1, borderStyle: "solid",}}>
-                     <Grid container justifyContent={"space-between"} alignItems={"center"} wrap={"wrap"}>
-                         <Grid>
-                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total assets</Typography>
-                             <Typography variant={"h6"} fontWeight={700}>$0</Typography>
-                         </Grid>
-                         <Grid sx={{display: {xs: "none", sm: "block"}}}>
-                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total BNB</Typography>
-                             <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
-                         </Grid>
-                         <Grid>
-                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total staked</Typography>
-                             <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
-                         </Grid>
-                         <Grid sx={{display: {xs: "none", md: "block"}}}>
-                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total rewards received</Typography>
-                             <Typography variant={"h6"} fontWeight={700}>0.00 BNB</Typography>
-                         </Grid>
-                         <Grid sx={{display: {xs: "none", md: "block"}}}>
-                             <Typography variant={"subtitle2"} fontWeight={300} mb={1}>BNB price</Typography>
-                             <Typography variant={"h6"} fontWeight={700}>$0</Typography>
-                         </Grid>
-                     </Grid>
-
-                 </Paper>
-              </Grid>
+              {/*  Section UserWallet   */}
+                <UserWallet title={"Wallet"}/>
               {/*  Section Main container   */}
               <Grid xs={12} lg={7.5} flexGrow={1}>
                   <Grid container direction={"column"} rowGap={5}>
