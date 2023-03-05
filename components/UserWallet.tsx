@@ -23,7 +23,7 @@ const UserWallet:FC<{title:string}> = ({title})=>{
                 </Grid>
                 <Grid sx={{display: {xs: "none", sm: "block"}}}>
                     <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total {bal.data?.symbol}</Typography>
-                    <Typography variant={"h6"} fontWeight={700}>{bal.data?.value} {bal.data?.symbol}</Typography>
+                    <Typography variant={"h6"} fontWeight={700}>{bal.data?.value.toString()} {bal.data?.symbol}</Typography>
                 </Grid>
                 <Grid>
                     <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total staked</Typography>
