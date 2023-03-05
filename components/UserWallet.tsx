@@ -6,7 +6,7 @@ import {useAccount, useBalance} from "wagmi";
 
 const UserWallet:FC<{title:string}> = ({title})=>{
     const {data, loading} = useAssets();
-    const {address,isConnected} = useAccount();
+    const {address} = useAccount();
     const bal = useBalance({address: address, formatUnits: 'gwei', watch: true,});
     const tokenPrice = data?.filter((a)=>a.symbol===bal.data?.symbol.toLowerCase());
 
@@ -22,19 +22,19 @@ const UserWallet:FC<{title:string}> = ({title})=>{
                     <Typography variant={"h6"} fontWeight={700}>$0</Typography>
                 </Grid>
                 <Grid sx={{display: {xs: "none", sm: "block"}}}>
-                    <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total {isConnected?<>{bal.data?.symbol}</>:<>BNB</>}</Typography>
-                    <Typography variant={"h6"} fontWeight={700}>{isConnected?<>{bal.data?.value} {bal.data?.symbol}</>:<>0 BNB</>}</Typography>
+                    <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total {bal.data?.symbol}</Typography>
+                    <Typography variant={"h6"} fontWeight={700}>{bal.data?.value} {bal.data?.symbol}</Typography>
                 </Grid>
                 <Grid>
                     <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total staked</Typography>
-                    <Typography variant={"h6"} fontWeight={700}>0.00 {isConnected?<>{bal.data?.symbol}</>:<>BNB</>}</Typography>
+                    <Typography variant={"h6"} fontWeight={700}>0.00 {bal.data?.symbol}</Typography>
                 </Grid>
                 <Grid sx={{display: {xs: "none", md: "block"}}}>
                     <Typography variant={"subtitle2"} fontWeight={300} mb={1}>Total rewards received</Typography>
-                    <Typography variant={"h6"} fontWeight={700}>0.00 {isConnected?<>{bal.data?.symbol}</>:<>BNB</>}</Typography>
+                    <Typography variant={"h6"} fontWeight={700}>0.00 {bal.data?.symbol}</Typography>
                 </Grid>
                 <Grid sx={{display: {xs: "none", md: "block"}}}>
-                    <Typography variant={"subtitle2"} fontWeight={300} mb={1}>{isConnected?<>{bal.data?.symbol}</>:<>BNB</>} price</Typography>
+                    <Typography variant={"subtitle2"} fontWeight={300} mb={1}>{bal.data?.symbol} price</Typography>
                     <Typography variant={"h6"} fontWeight={700}>
                         {
                             (tokenPrice&&(tokenPrice.length>0)&&!loading)?
